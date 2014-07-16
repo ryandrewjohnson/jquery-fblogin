@@ -8,18 +8,32 @@
     <script>
         $(function () {
 
+            /*
             var fb = new FbLogin({
                 fbId: '156114864459351',
-                permissions: 'email,user_birthday'
+                permissions: 'email,user_birthday',
+                fields: 'first_name,last_name,locale,email,birthday'
             });
 
+            $(fb).on('authenticate.FbLogin', function (e, data) {
+                console.log('facebook authenticate', data);
+            });
+            */
+           
             $('#login').click(function () {
+                /*
                 fb.login()
                 .progress(function (args) {
                     console.log('progress', args);
                 })
-                .done(function () {
-                    console.log('done everything');
+                .done(function (args) {
+                    console.log('done everything', args);
+                });
+                */
+                $.fblogin({
+                    fbId: '156114864459351',
+                    permissions: 'email,user_birthday',
+                    fields: 'first_name,last_name,locale,email,birthday'
                 });
             });
             
