@@ -19,13 +19,6 @@
 }(function ($) {
     $.extend({
         /**
-         * Check for optional settings
-         * permissions - This should be a comma seperated list of FB permissions. See http://bit.ly/1plqJSs
-         * fields - If you want to limit what data is sent back from FB provide a comma seperated list of field IDs. See http://bit.ly/1plrevO 
-         * success - callback for when data is returned.
-         * error - callback will be passed an error object on failure.
-         */
-        /**
          * fblogin
          * @property {object}  options      - settings for fblogin plugin.
          * 
