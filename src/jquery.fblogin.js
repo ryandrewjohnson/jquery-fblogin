@@ -1,35 +1,68 @@
-    (function (factory) {
+/*!
+ * jQuery Facebook Login Plugin v1.0
+ * https://github.com/ryandrewjohnson/facebook-login
+ *
+ * Copyright 2014 Ryan Johnson
+ * Released under the MIT license
+ */
+(function (factory) {
     if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
+        // AMD
         define(['jquery'], factory);
+    } else if (typeof exports === 'object') {
+        // CommonJS
+        factory(require('jquery'));
     } else {
         // Browser globals
         factory(jQuery);
     }
 }(function ($) {
     $.extend({
+        /**
+         * Check for optional settings
+         * permissions - This should be a comma seperated list of FB permissions. See http://bit.ly/1plqJSs
+         * fields - If you want to limit what data is sent back from FB provide a comma seperated list of field IDs. See http://bit.ly/1plrevO 
+         * success - callback for when data is returned.
+         * error - callback will be passed an error object on failure.
+         */
+        /**
+         * fblogin
+         * @property {object}  options      - settings for fblogin plugin.
+         * 
+         * Required:
+         * options.fbId         {string}    - the Facebook app id
+         *
+         * Optional:
+         * options.permissions  {string}    - a comma seperated list of FB permissions. See http://bit.ly/1plqJSs
+         * options.fields       {string}    - a comma seperated list of field ids. See http://bit.ly/1plrevO 
+         * options.success      {function}  - callback that will be triggered when data is successfully returned from FB.
+         * options.error        {function}  - callback that will be triggered by any errors.
+         */
         fblogin: function (options) {
             
             /**
              * Private Props
              * @property {object}  __               - add private module functions here.
-             * @property {object}  publicAPI        - add public functions here.
-             * @property {object}  initialized      - a flag to ensure we only init module once.
+             * @property {object}  isSdkLoaded      - a flag for when the FB SDK has loaded.
+             * @property {object}  isFbInitiated    - a flag for when FB.init has been called.
+             * @property {object}  $dfd             - stores an instance of jquery Deferred.
              */
-            var __,                 
+            var __,           
+                isSdkLoaded,      
                 isFbInitiated,
                 $dfd;
 
             options = options || {};
+            isSdkLoaded = false;
             isFbInitiated = false;
             $dfd = $.Deferred();
 
             // PRIVATE FUNCTIONS
             __ = {  
                 init: function () {
-    
+                    // FB ID is required
                     if (!options.fbId) {
-                            throw new Error('fblogin missing required option fbId!')
+                            throw new Error('Required option "fbId" is missing!');
                     }
 
                     options.permissions = options.permissions || '';
@@ -40,36 +73,32 @@
                     __.listenForFbAsync();
                 },
                 listenForFbAsync: function () {
-                    console.log('init');
-
-                    if (isFbInitiated || window.FB) {
-                        __.initFB();
-                        isFbInitiated = true;
-                        return;
-                    }
-
-    
+                    // listen for FB SDK load
                     window.fbAsyncInit = function() {
                         __.initFB();
-                        isFbInitiated = true;
+                        isSdkLoaded = true;
                     };
-                },
-                initFB: function (dfd) {
-                    window.FB.init({
-                        appId      : options.fbId,
-                        cookie     : true,
-                        xfbml      : true,
-                        version    : 'v2.0'
-                    });
 
-                    console.log('initFB');
+                    if (isSdkLoaded || window.FB) {
+                        window.fbAsyncInit();
+                        return;
+                    }
+                },
+                initFB: function () {
+                    if (!isFbInitiated) {
+                        window.FB.init({
+                            appId      : options.fbId,
+                            cookie     : true,
+                            xfbml      : true,
+                            version    : 'v2.0'
+                        });
+
+                        isFbInitiated = true;
+                    }
                     
                     $dfd.notify({status: 'init.fblogin'});
                 },
-                loginToFB: function (dfd) {
-
-                    console.log('loginToFB');
-                    
+                loginToFB: function () {
                     window.FB.login(function(response) {
                         if (response.authResponse) {
 
@@ -79,8 +108,12 @@
                             });
 
                         } else {
-                            console.log('User cancelled login or did not fully authorize.');
-                            $dfd.reject();
+                            // mimic facebook sdk error format
+                            $dfd.reject({
+                                error: {
+                                    message: 'User cancelled login or did not fully authorize.'
+                                }
+                            });
                         }
                     }, {
                         scope: options.permissions, 
@@ -88,21 +121,22 @@
                     });
                 },
                 getFbFields: function (accessToken) {
-
-                    FB.api('/me', {fields: self.fields}, function(response) {
+                    FB.api('/me', {fields: options.fields}, function(response) {
                         if (response && !response.error) {
                             $dfd.resolve(response);
                         } 
                         else {
-                            console.log('Error gettting user data.', response);
-                            $dfd.reject();
+                            $dfd.reject(response);
                         }
                     });
                 }
             };
 
+            // This monitors the FB login progresssion
+            // 1. Init FB
+            // 2. FB.login
+            // 3. Get user data
             $dfd.progress(function (response) {
-
                 switch(response.status) {
                     case 'init.fblogin':
                         __.loginToFB();
@@ -118,9 +152,11 @@
                 }
             });
 
+            // point callbacks at deffereds
             $dfd.done(options.success);
-            $dfd.reject(options.error);
+            $dfd.fail(options.error);
 
+            // here we go!
             __.init();
 
             return $dfd;

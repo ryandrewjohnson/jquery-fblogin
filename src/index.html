@@ -8,6 +8,23 @@
     <script>
         $(function () {
             
+            /**
+                Test Use Cases:
+                    - fail facebook login
+                    - cancel facebook login
+                    - don't accept permissions
+                    - no permission options included
+                    - no fields permission included
+                    - include permission but not fields, and vica versa
+                    - try to get fields for something you don't have permission for
+                    - badly formatted fields
+                    - badly formatted permissions
+                - try a bunch of field and permission combinations
+                - make sure callbacks work with $.proxy
+                - try with requirejs
+                - add bower package
+            */
+
             $('#login').click(function () {
 
                 $.fblogin({
@@ -16,6 +33,9 @@
                     fields: 'first_name,last_name,locale,email,birthday',
                     success: function (data) {
                         console.log('success callback', data);
+                    },
+                    error: function (error) {
+                      console.log('error callback', error);  
                     }
                 })
                 .progress(function (data) {
