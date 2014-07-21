@@ -1,2 +1,2 @@
-facebook-login
+jquery.fblogin
 ==============

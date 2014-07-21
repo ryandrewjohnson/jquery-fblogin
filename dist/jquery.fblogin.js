@@ -1,3 +1,8 @@
+/**
+ * jquery.fblogin - v1.0.0 (2014-07-21)
+ * https://github.com/ryandrewjohnson/jquery-fblogin
+ * Copyright (c) 2014 Ryan Johnson; Licensed MIT 
+ */
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
         // AMD
