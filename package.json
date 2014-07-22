@@ -1,7 +1,7 @@
 {
   "name": "jquery.fblogin",
   "version": "1.0.0",
-  "description": "",
+  "description": "Need to log in with Facebook? Avoid the callback soup and log in with a single call using this simple jQuery plugin.",
   "keywords": [],
   "homepage":"https://github.com/ryandrewjohnson/jquery-fblogin",
   "author": {
