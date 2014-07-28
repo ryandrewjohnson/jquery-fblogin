@@ -1,0 +1,30 @@
+{
+  "name": "jquery.fblogin",
+  "version": "1.0.0",
+  "homepage": "https://github.com/ryandrewjohnson/jquery-fblogin",
+  "authors": [
+    "ryanjohnson <ryan@shakainteractive.com>"
+  ],
+  "description": "Easily log in with Facebook with a single call using this simple jQuery plugin",
+  "main": "src/jquery.fblogin.js",
+  "dependencies": {
+    "jquery": ">=1.5"
+  },
+  "keywords": [
+    "jquery",
+    "facebook",
+    "plugin",
+    "login",
+    "fblogin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "demo",
+    "dist"
+  ]
+}

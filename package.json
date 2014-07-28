@@ -1,7 +1,7 @@
 {
   "name": "jquery.fblogin",
   "version": "1.0.0",
-  "description": "Need to log in with Facebook? Avoid the callback soup and log in with a single call using this simple jQuery plugin.",
+  "description": "Easily log in with Facebook with a single call using this simple jQuery plugin",
   "keywords": [],
   "homepage":"https://github.com/ryandrewjohnson/jquery-fblogin",
   "author": {
@@ -9,6 +9,13 @@
     "email": "ryan@shakainteractive.com",
     "url": "http://shakainteractive.com"
   },
+  "keywords": [
+    "jquery",
+    "facebook",
+    "plugin",
+    "login",
+    "fblogin"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -27,5 +34,6 @@
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-clean": "~0.4.0",
     "grunt": "~0.4.5"
-  }
+  },
+  "readmeFilename": "README.md",
 }
