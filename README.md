@@ -27,7 +27,7 @@ You will need a valid Facebook App Id and the Facebook JS SDK loaded to use the 
 
 ## Usage
 
-If you have used the jQuery.ajax() before using fblogin should be familiar. Simply call $.fblogin({}) passing in an options object with the desired settings.
+If you have used the jQuery.ajax() method before then using fblogin should seem familiar. Simply call $.fblogin(options) where options is an object with the desired settings.
 
 **Minimal login (no permissions):**
 
@@ -154,6 +154,8 @@ error: function (error) {}
 A callback funtion that will be called upon error. The function will receive an *error* object containing info related to the error thrown. 
 
 ## Notes
+* `$.fblogin()` returns a [Deferred Object](http://api.jquery.com/category/deferred-object/) which means you can chain deferred methods like always, fail, done etc..
+* Facebook is fickle and tends to change their API with little notice, which could potentially break this plugin. I will try my best to keep up with any changes on the FB side, but there are only so many hours in the day.
 
 
 
