@@ -6,7 +6,7 @@
     "ryanjohnson <ryan@shakainteractive.com>"
   ],
   "description": "Easily log in with Facebook with a single call using this simple jQuery plugin",
-  "main": "src/jquery.fblogin.js",
+  "main": "dist/jquery.fblogin.js",
   "dependencies": {
     "jquery": ">=1.5"
   },
@@ -25,6 +25,10 @@
     "test",
     "tests",
     "demo",
-    "dist"
+    "src",
+    "README.md",
+    "package.json",
+    "GruntFile.js",
+    "bower.json"
   ]
 }
