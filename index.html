@@ -14,6 +14,8 @@
   </head>
   <body>
     <div class="wrapper">
+
+
       <header>
         <h1>Jquery-fblogin</h1>
         <p>Easily log in with Facebook with a single call using this simple jQuery plugin.</p>
@@ -63,7 +65,67 @@ $ git checkout gh-pages
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
+    
+    <button id="login">Login</button>
+    
+    <script>
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
     <script src="javascripts/scale.fix.js"></script>
+    <script src="//http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdn.rawgit.com/ryandrewjohnson/jquery-fblogin/master/dist/jquery.fblogin.min.js"></script>
+    <script>
+      $(function () {
+            
+            /**
+                Test Use Cases:
+                    - fail facebook login
+                    - cancel facebook login
+                    - don't accept permissions
+                    - no permission options included
+                    - no fields permission included
+                    - include permission but not fields, and vica versa
+                    - try to get fields for something you don't have permission for
+                    - badly formatted fields
+                    - badly formatted permissions
+                - try a bunch of field and permission combinations
+                - make sure callbacks work with $.proxy
+                - try with requirejs
+                - add bower package
+                - invalid facebook id
+                - empty facebook id
+            */
+
+            $('#login').click(function () {
+
+                $.fblogin({
+                    fbId: '156114864459351',
+                    permissions: 'email,user_birthday',
+                    fields: 'first_name,last_name,locale,email,birthday',
+                    success: function (data) {
+                        console.log('success callback', data);
+                    },
+                    error: function (error) {
+                      console.log('error callback', error);  
+                    }
+                })
+                .progress(function (data) {
+                    console.log('progress', data);
+                })
+                .done(function (data) {
+                    console.log('done everything', data);
+                });
+            });
+            
+
+        });
+    </script>
     
   </body>
 </html>
