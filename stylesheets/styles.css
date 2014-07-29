@@ -253,3 +253,16 @@ footer {
     color:#444;
   }
 }
+
+.permissions-container {
+  clear: left;
+}
+.permissions-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+.permissions-list li {
+  display: inline-block;
+  width: 200px;
+}
