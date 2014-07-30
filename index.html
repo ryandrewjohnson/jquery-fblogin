@@ -294,7 +294,7 @@
                 })
                 .done(function (data) {
                     console.log('done everything', data);
-                    $('.success-callback').html(JSON.stringify(data));     
+                    $('.success-callback').html(JSON.stringify(data, null, 2));     
                 });
             });
             
