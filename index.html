@@ -267,7 +267,7 @@
               var permisssions = '';
 
               $('.permissions-container input[type="checkbox"]:checked').each(function () {
-                var permisssions += $(this).val() + ',';
+                permisssions += $(this).val() + ',';
               });
 
               permisssions = fbPermissions.substring(0, (fbPermissions.length - 1));
