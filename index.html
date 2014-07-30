@@ -23,6 +23,20 @@
         <li><a href="https://github.com/ryandrewjohnson/jquery-fblogin">View On <strong>GitHub</strong></a></li>
       </ul>
       
+      <!-- FACEBOOK -->
+      <a href="#" class="sc-btn sc--flat sc--facebook" id="login"> 
+        <span class="sc-icon">
+            <svg viewBox="0 0 33 33" width="25" height="25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M 17.996,32L 12,32 L 12,16 l-4,0 l0-5.514 l 4-0.002l-0.006-3.248C 11.993,2.737, 13.213,0, 18.512,0l 4.412,0 l0,5.515 l-2.757,0 c-2.063,0-2.163,0.77-2.163,2.209l-0.008,2.76l 4.959,0 l-0.585,5.514L 18,16L 17.996,32z"></path></g></svg>
+        </span>
+        <span class="sc-text">
+            Login with Facebook
+        </span>
+      </a>
+
+      <pre><code>
+        
+      </code></pre>
+
       <div class="permissions-container">
         <h3>Extended Profile Properties</h3>
         <ul class="permissions-list">
@@ -227,8 +241,6 @@
           </li>
         </ul>  
       </div>
-      
-      <button id="login">Login</button>
 
       <script>
         (function(d, s, id){
@@ -244,38 +256,42 @@
       <script src="//cdn.rawgit.com/ryandrewjohnson/jquery-fblogin/master/dist/jquery.fblogin.min.js"></script>
       <script>
         $(function () {
-            
-            /**
-                Test Use Cases:
-                    - fail facebook login
-                    - cancel facebook login
-                    - don't accept permissions
-                    - no permission options included
-                    - no fields permission included
-                    - include permission but not fields, and vica versa
-                    - try to get fields for something you don't have permission for
-                    - badly formatted fields
-                    - badly formatted permissions
-                - try a bunch of field and permission combinations
-                - make sure callbacks work with $.proxy
-                - try with requirejs
-                - add bower package
-                - invalid facebook id
-                - empty facebook id
-            */
+
+            /*
+            $('.permissions-container').on('click', 'input[type="checkbox"]', function () {
+              console.log('click', this);
+            });
+           */
+          
+           function getPermissions() {
+              var permisssions = '';
+
+              $('.permissions-container input[type="checkbox"]:checked').each(function () {
+                var permisssions += $(this).val() + ',';
+              });
+
+              permisssions = fbPermissions.substring(0, (fbPermissions.length - 1));
+
+              return permisssions;
+           }
 
             $('#login').click(function () {
 
+                var fbPermissions = getPermissions();
+
                 $.fblogin({
                     fbId: '156114864459351',
-                    permissions: 'email,user_birthday',
-                    fields: 'first_name,last_name,locale,email,birthday',
+                    permissions: fbPermissions,
+                    // fields: 'first_name,last_name,locale,email,birthday',
                     success: function (data) {
                         console.log('success callback', data);
                     },
                     error: function (error) {
                       console.log('error callback', error);  
                     }
+                })
+                .fail(function (error) {
+                  
                 })
                 .progress(function (data) {
                     console.log('progress', data);

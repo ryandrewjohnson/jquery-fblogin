@@ -264,5 +264,111 @@ footer {
 }
 .permissions-list li {
   display: inline-block;
-  width: 200px;
+  width: 200px; 
 }
+
+/* -------------------------------------------------
+----------------------------------------------------
+  MATTBOLDT.COM
+  Copyright (c) 2013 Matt Boldt
+----------------------------------------------------
+----------------------------------------------------
+  CODE IS AVAILABLE FOR USE FREE OF CHARGE
+  UNDER THE MIT LICENSE
+  http://opensource.org/licenses/MIT
+----------------------------------------------------
+----------------------------------------------------
+  If you'd like to credit me, or even donate
+  a few bucks that'd be very much appreciated!
+  Visit http://www.mattboldt.com/demos/social-buttons/
+  for more info.
+----------------------------------------------------
+-------------------------------------------------- */
+.sc-btn {
+  display: inline-block;
+  position: relative;
+  margin: 0 .25em .5em 0;
+  padding: 0;
+  color: #fff;
+  font-family: "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1em;
+  text-decoration: none;
+  text-shadow: rgba(0, 0, 0, 0.3) 0px -0.1em 0px;
+  border: 0;
+  border-radius: 0.4em;
+  -webkit-border-radius: 0.4em;
+  -moz-border-radius: 0.4em;
+  -ms-border-radius: 0.4em;
+  -o-border-radius: 0.4em;
+  background-color: #1a1a1a;
+  background-image: -webkit-linear-gradient(top, #595959, #1a1a1a 100%);
+  background-image: -moz-linear-gradient(top, #595959, #1a1a1a);
+  background-image: -ms-linear-gradient(top, #595959, #1a1a1a);
+  background-image: -o-linear-gradient(top, #595959, #1a1a1a);
+  background-image: linear-gradient(top, #595959, #1a1a1a);
+  box-shadow: inset rgba(0, 0, 0, 0.1) 0px -0.15em 0px, inset rgba(255, 255, 255, 0.2) 0px 0.15em 0px, rgba(0, 0, 0, 0.3) 0px 0.1em 0.3em;
+  text-align: center;
+  background-repeat: no-repeat;
+  -webkit-transition: background-position .1s ease-in-out;
+  -webkit-appearance: none;
+  cursor: pointer;
+  overflow: hidden; }
+  .sc-btn:hover {
+    color: #fff; }
+  .sc-btn:active {
+    box-shadow: rgba(255, 255, 255, 0.2) 0 0.1em 0, inset rgba(0, 0, 0, 0.3) 0px 0.25em 1em; }
+
+.sc-icon, .sc-text {
+  display: block;
+  float: left; }
+
+.sc-icon {
+  margin: 0 -.4em 0 0;
+  padding: 0.6em .8em .5em;
+  border-right: rgba(255, 255, 255, 0.1) 0.1em solid;
+  box-shadow: inset rgba(0, 0, 0, 0.1) -0.1em 0px 0px; }
+
+.sc-text {
+  padding: .95em 1em .85em 1em;
+  font-size: 1.15em;
+  text-align: center; }
+
+svg {
+  width: 1.8em;
+  height: 1.8em;
+  fill: #fff; }
+
+.sc--flat {
+  box-shadow: none;
+  background-image: none !important; }
+  .sc--flat .sc-icon {
+    border-color: transparent; }
+  .sc--flat:active {
+    box-shadow: inset rgba(0, 0, 0, 0.3) 0px 0.15em 0.25em; }
+
+.sc--facebook {
+  background-color: #33477a;
+  background-image: -webkit-linear-gradient(top, #5975ba, #33477a 100%);
+  background-image: -moz-linear-gradient(top, #5975ba, #33477a);
+  background-image: -ms-linear-gradient(top, #5975ba, #33477a);
+  background-image: -o-linear-gradient(top, #5975ba, #33477a);
+  background-image: linear-gradient(top, #5975ba, #33477a); }
+  .sc--facebook:hover {
+    background-color: #304373;
+    background-image: -webkit-linear-gradient(top, #6b84c1, #304373 90%);
+    background-image: -moz-linear-gradient(top, #6b84c1, #304373);
+    background-image: -ms-linear-gradient(top, #6b84c1, #304373);
+    background-image: -o-linear-gradient(top, #6b84c1, #304373);
+    background-image: linear-gradient(top, #6b84c1, #304373);
+    background-color: #4560a5; }
+  .sc--facebook:active {
+    background-color: #33477a;
+    background-image: -webkit-linear-gradient(top, #4a66b0, #33477a 100%);
+    background-image: -moz-linear-gradient(top, #4a66b0, #33477a);
+    background-image: -ms-linear-gradient(top, #4a66b0, #33477a);
+    background-image: -o-linear-gradient(top, #4a66b0, #33477a);
+    background-image: linear-gradient(top, #4a66b0, #33477a); }
+
+
