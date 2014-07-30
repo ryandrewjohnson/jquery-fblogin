@@ -371,4 +371,13 @@ svg {
     background-image: -o-linear-gradient(top, #4a66b0, #33477a);
     background-image: linear-gradient(top, #4a66b0, #33477a); }
 
+.permissions-title {
+  margin-bottom: 5px;
+}
+.permissions-selected {
+  margin-bottom: 5px;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
 

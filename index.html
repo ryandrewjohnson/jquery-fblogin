@@ -34,9 +34,12 @@
         </span>
       </a>
       
-      <h3>Response: ()</h3>
+      <h3 class="permissions-title">Response for permisssions:</h3>
+      <p class="permissions-selected"></p>
+
       <pre>
         <code class="success-callback">
+        // on success Facebook data will show up here.
         </code>
       </pre>
 
@@ -260,11 +263,9 @@
       <script>
         $(function () {
 
-            /*
             $('.permissions-container').on('click', 'input[type="checkbox"]', function () {
-              console.log('click', this);
+              $('.permissions-selected').text(getPermissions());
             });
-           */
           
            function getPermissions() {
               var permisssions = '';
