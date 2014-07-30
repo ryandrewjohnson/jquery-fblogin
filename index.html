@@ -291,10 +291,10 @@
                 })
                 .progress(function (data) {
                     console.log('progress', data);
-                    $('.success-callback').html(JSON.stringify(data));     
                 })
                 .done(function (data) {
                     console.log('done everything', data);
+                    $('.success-callback').html(JSON.stringify(data));     
                 });
             });
             
