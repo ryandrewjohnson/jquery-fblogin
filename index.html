@@ -33,7 +33,8 @@
             Login with Facebook
         </span>
       </a>
-
+      
+      <h3>Response: ()</h3>
       <pre>
         <code class="success-callback">
         </code>
@@ -294,7 +295,7 @@
                 })
                 .done(function (data) {
                     console.log('done everything', data);
-                    $('.success-callback').html(JSON.stringify(data, null, 2));     
+                    $('.success-callback').html(JSON.stringify(data, null, '\t'));     
                 });
             });
             
