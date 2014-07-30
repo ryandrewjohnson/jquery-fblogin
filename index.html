@@ -34,9 +34,10 @@
         </span>
       </a>
 
-      <pre><code>
-        
-      </code></pre>
+      <pre>
+        <code class="success-callback">
+        </code>
+      </pre>
 
       <div class="permissions-container">
         <h3>Extended Profile Properties</h3>
@@ -284,18 +285,13 @@
                     fbId: '156114864459351',
                     permissions: fbPermissions,
                     // fields: 'first_name,last_name,locale,email,birthday',
-                    success: function (data) {
-                        console.log('success callback', data);
-                    },
-                    error: function (error) {
-                      console.log('error callback', error);  
-                    }
                 })
                 .fail(function (error) {
-                  
+                  console.log('error callback', error);  
                 })
                 .progress(function (data) {
                     console.log('progress', data);
+                    $('.success-callback').html(JSON.stringify(data));     
                 })
                 .done(function (data) {
                     console.log('done everything', data);
