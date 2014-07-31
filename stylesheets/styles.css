@@ -107,6 +107,9 @@ header {
 header h3 {
   margin-bottom: 5px;
 }
+header h3 + p {
+  margin-bottom: 5px;
+}
 
 header ul {
   list-style:none;
@@ -378,4 +381,11 @@ svg {
   letter-spacing: 1px;
 }
 
-
+pre {
+  position: relative;
+}
+pre button {
+  position: absolute;
+  right: 5px;
+  left: 5px;
+}

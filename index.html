@@ -14,11 +14,6 @@
   </head>
   <body>
     <div class="wrapper">
-      
-      <!--
-      <p class="view"><a href="https://github.com/ryandrewjohnson/jquery-fblogin">View the Project on GitHub <small>ryandrewjohnson/jquery-fblogin</small></a></p>
-      -->
-      
         
       <header>
         <ul>
@@ -28,6 +23,9 @@
         </ul>
         <h3>Select a list of Facebook permissions from below and click the login button!</h3>
         <p><i>Note: Keep your console open to view progress and error callbacks.</i></p>
+        <p class="view">
+          <a href="https://github.com/ryandrewjohnson/jquery-fblogin" target="_blank">For full documentation view project on GitHub</a>
+        </p>
         <!-- FACEBOOK -->
         <a href="#" class="sc-btn sc--flat sc--facebook" id="login"> 
           <span class="sc-icon">
@@ -41,9 +39,10 @@
       
       <h3 class="permissions-title">Response for permisssions:</h3>
       <p class="permissions-selected"></p>
-
+      
       <pre>
-        <code class="success-callback">
+        <button class="reset-btn">Reset</button>
+        <code class="success-callback" data-default="// on success Facebook data will show up here.">
         // on success Facebook data will show up here.
         </code>
       </pre>
@@ -268,11 +267,13 @@
       <script>
         $(function () {
 
+            var $successCallback = $('.success-callback');
+
             $('.permissions-container').on('click', 'input[type="checkbox"]', function () {
               $('.permissions-selected').text(getPermissions());
             });
           
-           function getPermissions() {
+            function getPermissions() {
               var permisssions = '';
 
               $('.permissions-container input[type="checkbox"]:checked').each(function () {
@@ -282,7 +283,13 @@
               permisssions = permisssions.substring(0, (permisssions.length - 1));
 
               return permisssions;
-           }
+            }
+
+            $('.reset-btn').click(function () {
+              $('.permissions-container input[type="checkbox"]').attr('checked', false);
+              $('.permissions-selected').text('');
+              $successCallback.html($successCallback.data('default'));     
+            });
 
             $('#login').click(function () {
 
