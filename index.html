@@ -48,7 +48,7 @@
       </pre>
 
       <div class="permissions-container">
-        <h3>Extended Profile Properties</h3>
+        <h3>Extended Profile Properties<a href="#0" class="toggle-check" data-check="check all" data-uncheck="uncheck all">check all</a></h3>
         <ul class="permissions-list">
           <li>
             <label>
@@ -149,7 +149,7 @@
       </div>
       
       <div class="permissions-container">
-        <h3>Extended Permissions - Read</h3>
+        <h3>Extended Permissions - Read<a href="#0" class="toggle-check" data-check="check all" data-uncheck="uncheck all">check all</a></h3>
         <ul class="permissions-list">
           <li>
             <label>
@@ -175,7 +175,7 @@
       </div>
       
       <div class="permissions-container">
-        <h3>Extended Permissions - Publish</h3>
+        <h3>Extended Permissions - Publish<a href="#0" class="toggle-check" data-check="check all" data-uncheck="uncheck all">check all</a></h3>
         <ul class="permissions-list">
           <li>
             <label>
@@ -196,7 +196,7 @@
       </div> 
       
       <div class="permissions-container">
-        <h3>Open Graph Permissions</h3>
+        <h3>Open Graph Permissions<a href="#0" class="toggle-check" data-check="check all" data-uncheck="uncheck all">check all</a></h3>
         <ul class="permissions-list">
           <li>
             <label>
@@ -237,7 +237,8 @@
       </div>
       
       <div class="permissions-container">
-        <h3>Pages</h3>
+        <h3>Pages<a href="#0" class="toggle-check" data-check="check all" data-uncheck="uncheck all">check all</a></h3>
+        <a href="#0" class="toggle-check" data-check="check all" data-uncheck="uncheck all">check all</a>
         <ul class="permissions-list">
           <li>
             <label>
@@ -288,7 +289,20 @@
             $('.reset-btn').click(function () {
               $('.permissions-container input[type="checkbox"]').attr('checked', false);
               $('.permissions-selected').text('');
-              $successCallback.html($successCallback.data('default'));     
+              $successCallback.html($successCallback.data('default'));  
+              $('.toggle-check').text($('.toggle-check').data('check'));   
+            });
+
+            $('.toggle-check').click(function () {
+              var $checkboxes = $(this).parent('h3').siblings('.permissions-list').find('input[type="checkbox"]');
+              if($(this).text() === $(this).data('check')) {
+                $(this).text($(this).data('uncheck'));
+                $checkboxes.prop('checked', true);
+              }
+              else {
+                $(this).text($(this).data('check'));
+                $checkboxes.prop('checked', false);
+              }
             });
 
             $('#login').click(function () {
