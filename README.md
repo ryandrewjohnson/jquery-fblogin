@@ -25,6 +25,10 @@ You will need a valid Facebook App Id and the Facebook JS SDK loaded to use the 
 * [Setting up Facebook App](http://bit.ly/1kcBV6s)
 * [Add Facebook SDK](http://bit.ly/1kcFDNy)
 
+## Demo
+
+For a working demo you can check out [A jQuery Plugin For Adding Facebook Login To Your Web App](http://blog.shakainteractive.com/fblogin/)
+
 ## Usage
 
 If you have used the jQuery.ajax() method before then using fblogin should seem familiar. Simply call $.fblogin(options) where options is an object with the desired settings.
