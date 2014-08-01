@@ -1,0 +1,35 @@
+{
+    "name": "fblogin",
+    "title": "jQuery Facebook Login",
+    "description": "Easily log in with Facebook with a single call using this simple jQuery plugin",
+    "keywords": [
+        "facebook",
+        "login",
+        "fblogin"
+    ],
+    "version": "1.0.0",
+    "author": {
+        "name": "Ryan Johnson",
+        "url": "http://shakainteractive.com/"
+    },
+    "maintainers": [
+        {
+            "name": "Ryan Johnson",
+            "email": "ryan@shakainteractive.com",
+            "url": "http://shakainteractive.com/"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://raw.githubusercontent.com/ryandrewjohnson/jquery-fblogin/master/LICENSE"
+        }
+    ],
+    "bugs": "https://github.com/ryandrewjohnson/jquery-fblogin/issues",
+    "homepage": "https://github.com/ryandrewjohnson/jquery-fblogin",
+    "docs": "https://github.com/ryandrewjohnson/jquery-fblogin",
+    "download": "https://github.com/ryandrewjohnson/jquery-fblogin",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}
