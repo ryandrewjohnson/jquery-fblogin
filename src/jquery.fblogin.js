@@ -59,10 +59,14 @@
                     __.listenForFbAsync();
                 },
                 listenForFbAsync: function () {
+                    if (window.fbAsyncInit) {
+                        var notMyFunction = window.fbAsyncInit;
+                    }
                     // listen for FB SDK load
                     window.fbAsyncInit = function() {
                         __.initFB();
                         isSdkLoaded = true;
+                        notMyFunction();
                     };
 
                     if (isSdkLoaded || window.FB) {

@@ -1,5 +1,5 @@
 /**
- * jquery.fblogin - v1.0.0 (2014-07-21)
+ * jquery.fblogin - v1.0.1 (2014-09-14)
  * https://github.com/ryandrewjohnson/jquery-fblogin
  * Copyright (c) 2014 Ryan Johnson; Licensed MIT 
  */
@@ -64,10 +64,14 @@
                     __.listenForFbAsync();
                 },
                 listenForFbAsync: function () {
+                    if (window.fbAsyncInit) {
+                        var notMyFunction = window.fbAsyncInit;
+                    }
                     // listen for FB SDK load
                     window.fbAsyncInit = function() {
                         __.initFB();
                         isSdkLoaded = true;
+                        notMyFunction();
                     };
 
                     if (isSdkLoaded || window.FB) {
