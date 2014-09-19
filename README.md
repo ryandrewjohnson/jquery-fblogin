@@ -1,7 +1,7 @@
 jquery.fblogin
 ==============
 
-Simplify logging in with Facebook by using this easy to use jQuery plugin.
+Simplify logging in to Facebook by using this easy-to-use jQuery plugin.
 
 Logging in with Facebook usually requires the following steps:
 * window.fbAsyncInit
@@ -31,7 +31,7 @@ For a working demo you can check out [A jQuery Plugin For Adding Facebook Login 
 
 ## Usage
 
-If you have used the jQuery.ajax() method before then using fblogin should seem familiar. Simply call $.fblogin(options) where options is an object with the desired settings.
+If you have used the jQuery.ajax() method before, then using fblogin should seem familiar. Simply call $.fblogin(options) where options is an object with the desired settings.
 
 **Minimal login (no permissions):**
 
