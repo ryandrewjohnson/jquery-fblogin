@@ -127,27 +127,21 @@
                 }
             };
 
-            // This monitors the FB login progresssion
-            // 1. Init FB
+            // This monitors the FB login progression
+            // 1. Init Facebook
             // 2. FB.login
             // 3. Get user data
             $dfd.progress(function (response) {
-                switch(response.status) {
-                    case 'init.fblogin':
-                        __.loginToFB();
-                    break;
-
-                    case 'authenticate.fblogin':
-                        __.getFbFields(response.data.authResponse.accessToken);
-                    break;
-
-                    default: 
-                        dfd.reject();
-                    break;
+                if( response.status === 'init.fblogin' ) {
+                    __.loginToFB();
+                } else if( response.status === 'authenticate.fblogin' ) {
+                    __.getFbFields(response.data.authResponse.accessToken);
+                } else {
+                    dfd.reject();
                 }
             });
 
-            // point callbacks at deffereds
+            // point callbacks at deferreds
             $dfd.done(options.success);
             $dfd.fail(options.error);
 
