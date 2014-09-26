@@ -66,7 +66,7 @@
                     window.fbAsyncInit = function() {
                         __.initFB();
                         isSdkLoaded = true;
-                        notMyFunction();
+                        if (notMyFunction) { notMyFunction(); }
                     };
 
                     if (isSdkLoaded || window.FB) {

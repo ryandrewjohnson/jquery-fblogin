@@ -1,5 +1,5 @@
 /**
- * jquery.fblogin - v1.0.1 (2014-09-14)
+ * jquery.fblogin - v1.1.1 (2014-09-25)
  * https://github.com/ryandrewjohnson/jquery-fblogin
  * Copyright (c) 2014 Ryan Johnson; Licensed MIT 
  */
@@ -71,7 +71,7 @@
                     window.fbAsyncInit = function() {
                         __.initFB();
                         isSdkLoaded = true;
-                        notMyFunction();
+                        if (notMyFunction) { notMyFunction(); }
                     };
 
                     if (isSdkLoaded || window.FB) {
