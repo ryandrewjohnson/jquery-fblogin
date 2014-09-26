@@ -1,5 +1,5 @@
 /**
- * jquery.fblogin - v1.1.1 (2014-09-25)
+ * jquery.fblogin - v1.1.3 (2014-09-25)
  * https://github.com/ryandrewjohnson/jquery-fblogin
  * Copyright (c) 2014 Ryan Johnson; Licensed MIT 
  */
@@ -127,21 +127,21 @@
                 }
             };
 
-            // This monitors the FB login progression
-            // 1. Init Facebook
+            // This monitors the FB login progresssion
+            // 1. Init FB
             // 2. FB.login
             // 3. Get user data
             $dfd.progress(function (response) {
                 if( response.status === 'init.fblogin' ) {
                     __.loginToFB();
                 } else if( response.status === 'authenticate.fblogin' ) {
-                    __.getFbFields(response.data.authResponse.accessToken);
+                     __.getFbFields(response.data.authResponse.accessToken);
                 } else {
                     dfd.reject();
                 }
             });
 
-            // point callbacks at deferreds
+            // point callbacks at deffereds
             $dfd.done(options.success);
             $dfd.fail(options.error);
 
