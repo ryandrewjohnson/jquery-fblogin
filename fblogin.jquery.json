@@ -1,13 +1,13 @@
 {
     "name": "fblogin",
     "title": "jQuery Facebook Login",
-    "description": "Easily log in with Facebook with a single call using this simple jQuery plugin",
+    "description": "Empower your users to easily login via Facebook with this simple jQuery plugin",
     "keywords": [
         "facebook",
         "login",
         "fblogin"
     ],
-    "version": "1.1.1",
+    "version": "1.1.2",
     "author": {
         "name": "Ryan Johnson",
         "url": "http://shakainteractive.com/"

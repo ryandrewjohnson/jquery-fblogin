@@ -1,7 +1,7 @@
 jquery.fblogin
 ==============
 
-Simplify logging in to Facebook by using this easy-to-use jQuery plugin.
+Empower your users to easily login via Facebook with this simple jQuery plugin.
 
 Logging in with Facebook usually requires the following steps:
 * window.fbAsyncInit
