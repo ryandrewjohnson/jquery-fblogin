@@ -15,6 +15,12 @@ With the plugin just use `$.fblogin();`.
 
 ## Installation
 
+#### Install with Bower
+
+```
+bower install jquery.fblogin
+```
+
 Include script *after* the jQuery library:
 
 ```html
