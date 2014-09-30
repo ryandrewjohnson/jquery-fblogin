@@ -77,6 +77,9 @@
                     if (isSdkLoaded || window.FB) {
                         window.fbAsyncInit();
                         return;
+                    }else {
+                        console.log("Facebook SDK is not loaded !");
+                        return;    
                     }
                 },
                 initFB: function () {
