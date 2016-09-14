@@ -14,18 +14,18 @@
         /**
          * fblogin
          * @property {object}  options      - settings for fblogin plugin.
-         * 
+         *
          * Required:
          * options.fbId         {string}    - the Facebook app id
          *
          * Optional:
          * options.permissions  {string}    - a comma seperated list of FB permissions. See http://bit.ly/1plqJSs
-         * options.fields       {string}    - a comma seperated list of field ids. See http://bit.ly/1plrevO 
+         * options.fields       {string}    - a comma seperated list of field ids. See http://bit.ly/1plrevO
          * options.success      {function}  - callback that will be triggered when data is successfully returned from FB.
          * options.error        {function}  - callback that will be triggered by any errors.
          */
         fblogin: function (options) {
-            
+
             /**
              * Private Props
              * @property {object}  __               - add private module functions here.
@@ -33,8 +33,8 @@
              * @property {object}  isFbInitiated    - a flag for when FB.init has been called.
              * @property {object}  $dfd             - stores an instance of jquery Deferred.
              */
-            var __,           
-                isSdkLoaded,      
+            var __,
+                isSdkLoaded,
                 isFbInitiated,
                 $dfd;
 
@@ -44,7 +44,7 @@
             $dfd = $.Deferred();
 
             // PRIVATE FUNCTIONS
-            __ = {  
+            __ = {
                 init: function () {
                     // FB ID is required
                     if (!options.fbId) {
@@ -85,7 +85,7 @@
 
                         isFbInitiated = true;
                     }
-                    
+
                     $dfd.notify({status: 'init.fblogin'});
                 },
                 loginToFB: function () {
@@ -106,15 +106,15 @@
                             });
                         }
                     }, {
-                        scope: options.permissions, 
+                        scope: options.permissions,
                         return_scopes: true
                     });
                 },
                 getFbFields: function (accessToken) {
-                    FB.api('/me', {fields: options.fields}, function(response) {
+                    window.FB.api('/me', {fields: options.fields}, function(response) {
                         if (response && !response.error) {
                             $dfd.resolve(response);
-                        } 
+                        }
                         else {
                             $dfd.reject(response);
                         }
